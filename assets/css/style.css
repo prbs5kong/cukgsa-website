@@ -556,8 +556,9 @@ body[data-page="index.html"] .bannerstrip { height: 148px; }
 .avatar {
   width: 54px; height: 54px; border-radius: 50%; margin: 0 auto 10px;
   display: grid; place-items: center; font-size: 1.15rem; font-weight: 800;
-  background: var(--cu-gold); color: #12130f;
+  background: var(--cu-gold); color: #12130f; overflow: hidden;
 }
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
 .person h3 { font-size: 0.94rem; }
 .person .role { font-size: 0.79rem; color: var(--cu-gold-ink); font-weight: 700; margin-top: 2px; }
 .person .dept { font-size: 0.77rem; color: var(--ink-faint); margin-top: 4px; }
@@ -689,6 +690,15 @@ body[data-page="index.html"] .bannerstrip { height: 148px; }
 .field textarea { min-height: 120px; resize: vertical; }
 .field .check { display: flex; gap: 8px; align-items: flex-start; font-weight: 400; font-size: 0.84rem; }
 .field .check input { width: auto; margin-top: 3px; }
+
+/* 임원진 사진 업로드 */
+.photo-field { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.photo-field__preview {
+  width: 48px; height: 48px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+  border: 1px solid var(--line-strong); background: var(--bg-band);
+}
+.photo-field__preview img { width: 100%; height: 100%; object-fit: cover; }
+.photo-field input[type="file"] { width: auto; flex: 1; min-width: 160px; padding: 6px; font-size: 0.82rem; }
 .form-note { font-size: 0.8rem; color: var(--ink-faint); }
 
 /* --- 게시판 글쓰기 · 상세 · 댓글 ----------------------------------------- */

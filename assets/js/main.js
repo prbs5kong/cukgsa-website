@@ -436,7 +436,9 @@ async function renderOfficers() {
     if (rows === null) { mount.innerHTML = `<p class="note">임원진을 불러오지 못했습니다.</p>`; return; }
     mount.innerHTML = rows.map((o) => `
       <div class="person">
-        <div class="avatar" aria-hidden="true">${esc(o.name.slice(0, 1))}</div>
+        <div class="avatar" aria-hidden="true">${o.photo_url
+          ? `<img src="${esc(o.photo_url)}" alt="">`
+          : esc(o.name.slice(0, 1))}</div>
         <h3>${esc(o.name)}</h3>
         <div class="role">${esc(o.role)}</div>
         ${o.dept ? `<div class="dept">${esc(o.dept)}</div>` : ""}
@@ -446,7 +448,9 @@ async function renderOfficers() {
   if (!window.KGSA_OFFICERS) return;
   mount.innerHTML = KGSA_OFFICERS.map((o) => `
     <div class="person">
-      <div class="avatar" aria-hidden="true">${o.name.slice(0, 1)}</div>
+      <div class="avatar" aria-hidden="true">${o.photo_url
+        ? `<img src="${o.photo_url}" alt="">`
+        : o.name.slice(0, 1)}</div>
       <h3>${o.name}</h3>
       <div class="role">${o.role}</div>
       ${o.dept ? `<div class="dept">${o.dept}</div>` : ""}

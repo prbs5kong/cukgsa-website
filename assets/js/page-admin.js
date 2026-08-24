@@ -64,12 +64,13 @@
     officers: {
       label: "임원",
       fields: [
+        { k: "photo_url", t: "image", label: "사진" },
         { k: "name", t: "text", label: "이름", required: true },
         { k: "role", t: "text", label: "직책 (예: President)" },
         { k: "dept", t: "text", label: "학과" },
         { k: "sort_order", t: "number", label: "표시 순서" },
       ],
-      blank: { name: "", role: "", dept: "", sort_order: 0 },
+      blank: { name: "", role: "", dept: "", photo_url: "", sort_order: 0 },
       summary: (r) => `${r.name}${r.role ? " · " + r.role : ""}`,
     },
   };
@@ -81,12 +82,28 @@
     const rows = await api.listContent(kind);
     if (rows === null) { box.innerHTML = `<p class="note">불러오지 못했습니다.</p>`; return; }
 
+    const imageField = (f, r) => {
+      const val = r[f.k] ?? "";
+      return `<div class="field">
+        <label>${esc(f.label)}</label>
+        <div class="photo-field">
+          <div class="photo-field__preview"${val ? "" : ' hidden'} data-photo-preview>
+            ${val ? `<img src="${esc(val)}" alt="">` : ""}
+          </div>
+          <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" data-photo-input>
+          <button type="button" class="btn btn--outline btn--sm" data-photo-clear${val ? "" : " hidden"}>사진 제거</button>
+        </div>
+        <input type="hidden" data-k="${f.k}" value="${esc(val)}">
+        <p class="form-note" data-photo-msg></p>
+      </div>`;
+    };
+
     const card = (r) => {
       const isNew = !r.id;
       return `<div class="panel ed-card" data-id="${r.id || ""}">
         ${isNew ? `<h3>새 ${esc(def.label)} 추가</h3>` : `<h3>${esc(def.summary(r))}</h3>`}
         <div class="form-grid">
-          ${def.fields.map((f) => `
+          ${def.fields.map((f) => f.t === "image" ? imageField(f, r) : `
             <div class="field">
               <label>${esc(f.label)}${f.required ? ' <span class="req">*</span>' : ""}</label>
               <input type="${f.t}" data-k="${f.k}" value="${esc(r[f.k] ?? "")}">
@@ -105,6 +122,40 @@
     box.querySelectorAll(".ed-card").forEach((cardEl) => {
       const id = cardEl.dataset.id ? Number(cardEl.dataset.id) : null;
       const msg = cardEl.querySelector("[data-msg]");
+
+      /* 사진 업로드 — 선택 즉시 올리고, 성공하면 hidden input 에 주소를 채웁니다 */
+      cardEl.querySelectorAll("[data-photo-input]").forEach((fileInput) => {
+        const field = fileInput.closest(".field");
+        const hidden  = field.querySelector("[data-k]");
+        const preview = field.querySelector("[data-photo-preview]");
+        const clearBtn = field.querySelector("[data-photo-clear]");
+        const pmsg = field.querySelector("[data-photo-msg]");
+
+        fileInput.onchange = async () => {
+          const file = fileInput.files?.[0];
+          if (!file) return;
+          pmsg.textContent = "업로드 중…";
+          try {
+            const url = await api.uploadImage(file);
+            hidden.value = url;
+            preview.innerHTML = `<img src="${url}" alt="">`;
+            preview.hidden = false;
+            clearBtn.hidden = false;
+            pmsg.textContent = "업로드 완료. 저장을 눌러 반영해 주세요.";
+          } catch (e) {
+            pmsg.textContent = "업로드 실패: " + e.message;
+          }
+          fileInput.value = "";
+        };
+        clearBtn.onclick = () => {
+          hidden.value = "";
+          preview.innerHTML = "";
+          preview.hidden = true;
+          clearBtn.hidden = true;
+          pmsg.textContent = "";
+        };
+      });
+
       const read = () => {
         const o = {};
         cardEl.querySelectorAll("[data-k]").forEach((i) => {

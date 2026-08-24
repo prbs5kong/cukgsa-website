@@ -424,6 +424,8 @@ create table if not exists public.officers (
   created_at timestamptz not null default now()
 );
 
+alter table public.officers add column if not exists photo_url text not null default '';
+
 -- 연락처·SNS 같은 자잘한 값
 create table if not exists public.site_settings (
   key        text primary key,
