@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko" data-root="../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>회원 가입 · CU Boulder KGSA</title>
+<meta name="description" content="CU Boulder 한인 대학원 학생회(KGSA) 회원 가입 안내 및 신청.">
+<link rel="canonical" href="https://cukgsa.com/pages/join.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CU Boulder KGSA">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="회원 가입 · CU Boulder KGSA">
+<meta property="og:description" content="CU Boulder 한인 대학원 학생회(KGSA) 회원 가입 안내 및 신청.">
+<meta property="og:url" content="https://cukgsa.com/pages/join.html">
+<meta property="og:image" content="https://cukgsa.com/assets/img/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="회원 가입 · CU Boulder KGSA">
+<meta name="twitter:description" content="CU Boulder 한인 대학원 학생회(KGSA) 회원 가입 안내 및 신청.">
+<meta name="twitter:image" content="https://cukgsa.com/assets/img/og-cover.jpg">
+<meta name="theme-color" content="#cfb87c">
+<link rel="icon" type="image/png" href="../assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="join.html">
+<a class="skip-link" href="#main">본문 바로가기</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <a href="../index.html">홈</a><span>›</span><span>회원 가입</span>
+      </nav>
+      <h1>KGSA 회원 가입</h1>
+      <p>회비는 없습니다. 아래 한 번의 신청으로 <strong>홈페이지 계정</strong>이 만들어지고
+         <strong>KGSA 회원</strong>으로 등록됩니다. 가입 후 바로 게시판에 글을 쓰실 수 있습니다.</p>
+      <p class="form-note" style="margin-top:8px">이미 계정이 있으신가요? <a href="login.html">로그인하기</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <div class="panel">
+          <h3>가입 신청서</h3>
+          <form class="form-grid" id="join-form" novalidate>
+            <div class="field">
+              <label for="j-name">실명 <span class="req">*</span></label>
+              <input type="text" id="j-name" name="name" required placeholder="홍길동">
+              <p class="form-note" style="margin-top:4px">운영진 회원 관리용이며, 게시판에는 공개되지 않습니다.</p>
+            </div>
+            <div class="field">
+              <label for="j-nickname">닉네임 <span class="req">*</span></label>
+              <input type="text" id="j-nickname" name="nickname" required minlength="2" maxlength="20" placeholder="게시판에 표시될 이름">
+              <p class="form-note" style="margin-top:4px">게시글 · 댓글에 이 이름으로 공개됩니다.</p>
+            </div>
+            <div class="field">
+              <label for="j-email">이메일 (학교 메일 권장) <span class="req">*</span></label>
+              <input type="email" id="j-email" name="email" required placeholder="firstname.lastname@colorado.edu">
+            </div>
+            <div class="field">
+              <label for="j-password">비밀번호 <span class="req">*</span></label>
+              <input type="password" id="j-password" name="password" required minlength="6"
+                     autocomplete="new-password" placeholder="6자 이상">
+            </div>
+            <div class="field">
+              <label for="j-status">신분 <span class="req">*</span></label>
+              <select id="j-status" name="status" required>
+                <option value="">선택하세요</option>
+                <option>석사과정 (MS/MA)</option>
+                <option>박사과정 (PhD)</option>
+                <option>포스닥 · 연구원</option>
+                <option>방문학자</option>
+                <option>가족 · 배우자</option>
+                <option>기타</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="j-dept">학과 / 소속</label>
+              <input type="text" id="j-dept" name="dept" placeholder="Computer Science">
+            </div>
+            <div class="field">
+              <label for="j-year">입학 · 부임 연도</label>
+              <input type="text" id="j-year" name="year" placeholder="2026 Fall">
+            </div>
+            <div class="field">
+              <label for="j-note">하고 싶은 말 · 관심 있는 활동</label>
+              <textarea id="j-note" name="note" placeholder="등산 소모임에 관심 있어요 / 공항 픽업이 필요합니다 등"></textarea>
+            </div>
+            <div class="field">
+              <label class="check">
+                <input type="checkbox" id="j-agree" required>
+                <span>입력한 정보를 KGSA 회원 관리 및 공지 발송 목적으로만 사용하는 데 동의합니다.</span>
+              </label>
+            </div>
+            <div>
+              <button type="submit" class="btn btn--primary" id="j-submit">가입하기</button>
+            </div>
+            <p class="form-note" id="join-msg" role="status"></p>
+          </form>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="panel">
+          <h3>회원이 되면</h3>
+          <ul>
+            <li><span>· 친목 행사 · 문화 활동 · 네트워킹 참여</span></li>
+            <li><span>· 총회 의결권 (안건 투표)</span></li>
+            <li><span>· 행사 안내 수신</span></li>
+          </ul>
+          <p class="form-note" style="margin-top:8px">회칙 제2조 · 제3조</p>
+        </div>
+        <div class="panel">
+          <h3>가입 대상</h3>
+          <ul>
+            <li><span>· CU Boulder 재학 대학원생</span></li>
+            <li><span>· 한국 문화에 관심이 있는 분</span></li>
+            <li><span>· 한인 대학원생 커뮤니티와 교류하고 싶은 분</span></li>
+          </ul>
+          <p class="form-note" style="margin-top:8px">한국계가 아니어도 환영합니다. 회비는 없습니다.</p>
+        </div>
+        <div class="panel">
+          <h3>문의</h3>
+          <ul>
+            <li><a href="mailto:kgsa@colorado.edu">kgsa@colorado.edu</a></li>
+            <li><a href="contact.html">문의 페이지</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="../assets/js/supabase-config.js"></script>
+<script src="../assets/js/kgsa-api.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+/* 가입 = 홈페이지 계정 생성 + KGSA 회원 등록 (한 번에) */
+(async () => {
+  const api  = window.KGSA_API;
+  const form = document.getElementById("join-form");
+  const msg  = document.getElementById("join-msg");
+  const btn  = document.getElementById("j-submit");
+  const v    = (id) => document.getElementById(id).value.trim();
+
+  if (api?.configured) {
+    await api.init();
+    if (api.isLoggedIn()) {
+      form.innerHTML = `<p><strong>${window.kgsaEsc(api.state.profile?.display_name || "회원")}</strong> 님,
+        이미 가입되어 있습니다.</p>
+        <div class="write-actions" style="margin-top:14px">
+          <a class="btn btn--primary btn--sm" href="write.html">글쓰기</a>
+          <a class="btn btn--outline btn--sm" href="../index.html">홈으로</a>
+        </div>`;
+      return;
+    }
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    if (!api?.configured) {
+      msg.textContent = "게시판이 아직 연결되지 않았습니다. 운영진에게 문의해 주세요. (kgsa@colorado.edu)";
+      msg.style.color = "#b4262a";
+      return;
+    }
+
+    btn.disabled = true;
+    msg.style.color = "";
+    msg.textContent = "가입 처리 중…";
+    try {
+      const r = await api.signUpEmail(v("j-email"), v("j-password"), v("j-nickname"), {
+        real_name: v("j-name"),
+        status: v("j-status"), dept: v("j-dept"), year_joined: v("j-year"), note: v("j-note"),
+      });
+      if (r.needsEmailConfirm) {
+        msg.textContent = "가입 확인 메일을 보냈습니다. 메일의 링크를 눌러 주세요.";
+      } else {
+        msg.textContent = "가입되었습니다. 잠시 후 이동합니다…";
+        setTimeout(() => { location.href = "../index.html"; }, 900);
+      }
+    } catch (err) {
+      msg.textContent = err.message;
+      msg.style.color = "#b4262a";
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>

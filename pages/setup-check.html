@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" data-root="../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>연결 확인 · CU Boulder KGSA</title>
+<meta name="description" content="게시판 백엔드 연결 상태 점검">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#cfb87c">
+<link rel="icon" type="image/png" href="../assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="setup-check.html">
+<a class="skip-link" href="#main">본문 바로가기</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <a href="../index.html">홈</a><span>›</span><span>연결 확인</span>
+      </nav>
+      <h1>게시판 연결 확인</h1>
+      <p>Supabase 설정이 어디까지 됐는지 순서대로 점검합니다.
+         빨간 항목의 안내를 따라가시면 됩니다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap" style="max-width:860px">
+      <div id="check-list"></div>
+      <p class="form-note" style="margin-top:16px">
+        이 페이지는 검색에 노출되지 않습니다. 설정이 끝나면 이 주소는 잊으셔도 됩니다.
+        (<code>pages/setup-check.html</code>)
+      </p>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="../assets/js/supabase-config.js"></script>
+<script src="../assets/js/kgsa-api.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/page-setup.js"></script>
+</body>
+</html>

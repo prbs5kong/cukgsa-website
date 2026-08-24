@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko" data-root="../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>게시판 · CU Boulder KGSA</title>
+<meta name="description" content="CU Boulder 한인 대학원 학생회 게시판 — 공지사항, 취업·인턴, 벼룩시장, 하우징, 자유게시판.">
+<link rel="canonical" href="https://cukgsa.com/pages/board.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CU Boulder KGSA">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="게시판 · CU Boulder KGSA">
+<meta property="og:description" content="CU Boulder 한인 대학원 학생회 게시판 — 공지사항, 취업·인턴, 벼룩시장, 하우징, 자유게시판.">
+<meta property="og:url" content="https://cukgsa.com/pages/board.html">
+<meta property="og:image" content="https://cukgsa.com/assets/img/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="게시판 · CU Boulder KGSA">
+<meta name="twitter:description" content="CU Boulder 한인 대학원 학생회 게시판 — 공지사항, 취업·인턴, 벼룩시장, 하우징, 자유게시판.">
+<meta name="twitter:image" content="https://cukgsa.com/assets/img/og-cover.jpg">
+<meta name="theme-color" content="#cfb87c">
+<link rel="icon" type="image/png" href="../assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="board.html">
+<a class="skip-link" href="#main">본문 바로가기</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <a href="../index.html">홈</a><span>›</span><span>게시판</span>
+      </nav>
+      <h1>커뮤니티 게시판</h1>
+      <p>공지, 취업 공고, 벼룩시장, 하우징, 자유게시판을 한 화면에서 검색하고 확인하세요.</p>
+    </div>
+  </section>
+
+  <section class="section" id="board-top">
+    <div class="wrap">
+      <div class="board-toolbar">
+        <div class="tabs" id="board-tabs"></div>
+        <div class="search-box">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" id="board-search" placeholder="제목으로 검색…" aria-label="게시글 검색">
+        </div>
+      </div>
+
+      <p class="section-sub" style="margin:0 0 12px" id="board-count"></p>
+
+      <div class="table-card">
+        <table class="post-table">
+          <thead>
+            <tr>
+              <th class="c-cat">분류</th>
+              <th>제목</th>
+              <th class="c-author">작성자</th>
+              <th class="c-date">날짜</th>
+            </tr>
+          </thead>
+          <tbody id="post-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="board-bottom">
+        <div class="pager" id="board-pager"></div>
+        <div class="board-bottom__write" id="board-write-slot"></div>
+      </div>
+
+      <div class="panel" style="margin-top:36px">
+        <h3>게시판 이용 안내</h3>
+        <ul style="display:grid;gap:6px">
+          <li><span>· 글 작성은 로그인한 회원만 가능합니다. (백엔드 연동 후 활성화 예정)</span></li>
+          <li><span>· 상업적 광고는 <a href="sponsors.html">후원업체</a> 절차를 거쳐 게시해 주세요.</span></li>
+          <li><span>· 개인 간 거래로 발생한 분쟁에 대해 KGSA는 책임지지 않습니다.</span></li>
+          <li><span>· 문의: <a href="mailto:kgsa@colorado.edu">kgsa@colorado.edu</a></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="../assets/js/supabase-config.js"></script>
+<script src="../assets/js/kgsa-api.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/page-board.js"></script>
+</body>
+</html>

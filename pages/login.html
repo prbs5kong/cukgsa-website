@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko" data-root="../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>로그인 · CU Boulder KGSA</title>
+<meta name="description" content="KGSA 회원 로그인 및 회원가입">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#cfb87c">
+<link rel="icon" type="image/png" href="../assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="login.html">
+<a class="skip-link" href="#main">본문 바로가기</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <a href="../index.html">홈</a><span>›</span><span>로그인</span>
+      </nav>
+      <h1>회원 로그인</h1>
+      <p>게시판에 글을 쓰거나 댓글을 달려면 로그인이 필요합니다.
+         회원가입은 이메일만 있으면 됩니다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap" style="max-width:460px">
+      <div class="panel" id="login-panel"><p class="note">불러오는 중…</p></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="../assets/js/supabase-config.js"></script>
+<script src="../assets/js/kgsa-api.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+(async () => {
+  const api = window.KGSA_API;
+  const box = document.getElementById("login-panel");
+  if (api?.configured) await api.init();
+  if (api?.isLoggedIn()) {
+    const name = window.kgsaEsc(api.state.profile?.display_name || "회원");
+    box.innerHTML = `<p><strong>${name}</strong> 님으로 로그인되어 있습니다.</p>
+      <div class="write-actions" style="margin-top:14px">
+        <a class="btn btn--primary btn--sm" href="write.html">글쓰기</a>
+        <a class="btn btn--outline btn--sm" href="../index.html">홈으로</a>
+      </div>`;
+    return;
+  }
+  const mode = new URLSearchParams(location.search).get("mode") === "signup" ? "signup" : "login";
+  box.innerHTML = loginFormHTML(mode);
+  bindLoginForm(box);
+})();
+</script>
+</body>
+</html>

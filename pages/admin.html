@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko" data-root="../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>운영 · CU Boulder KGSA</title>
+<meta name="description" content="KGSA 운영진 전용 페이지">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#cfb87c">
+<link rel="icon" type="image/png" href="../assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="admin.html">
+<a class="skip-link" href="#main">본문 바로가기</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <a href="../index.html">홈</a><span>›</span><span>운영</span>
+      </nav>
+      <h1>운영진 페이지</h1>
+      <p>행사 · 후원업체 · 임원진 · 신고 · 계정 차단을 여기서 관리합니다. 저장하면 즉시 반영되며 사이트를 다시 올릴 필요가 없습니다. <a href="setup-check.html">연결 확인 →</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div id="admin-gate" class="panel"><p class="note">확인 중…</p></div>
+
+      <div id="admin-body" hidden>
+        <div class="tabs" id="admin-tabs" style="margin-bottom:16px">
+          <button class="tab is-active" data-tab="reports">신고 처리</button>
+          <button class="tab" data-tab="users">회원 · 차단</button>
+          <button class="tab" data-tab="events">행사</button>
+          <button class="tab" data-tab="sponsors">후원업체</button>
+          <button class="tab" data-tab="officers">임원진</button>
+          <button class="tab" data-tab="settings">연락처</button>
+        </div>
+
+        <!-- 신고 -->
+        <div id="tab-reports">
+          <div class="section-head">
+            <h2 class="section-title">접수된 신고</h2>
+            <span class="note" id="rep-count"></span>
+          </div>
+          <div class="table-card">
+            <table class="post-table">
+              <thead><tr><th style="width:90px">대상</th><th>사유</th><th style="width:130px">신고자</th><th style="width:110px">일시</th><th style="width:210px">처리</th></tr></thead>
+              <tbody id="rep-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 회원 -->
+        <div id="tab-users" hidden>
+          <div class="section-head">
+            <h2 class="section-title">회원 관리</h2>
+            <span class="note">스팸 계정을 차단하면 글쓰기·댓글·사진 업로드가 즉시 막힙니다.</span>
+          </div>
+          <div class="board-toolbar">
+            <div class="search-box">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input type="search" id="u-search" placeholder="이름 또는 이메일로 검색…" aria-label="회원 검색">
+            </div>
+          </div>
+          <div class="table-card">
+            <table class="post-table">
+              <thead><tr><th>회원</th><th style="width:80px">글</th><th style="width:90px">신고</th><th style="width:150px">상태</th><th style="width:250px">조치</th></tr></thead>
+              <tbody id="u-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 행사 · 후원업체 · 임원진 (웹에서 바로 수정) -->
+        <div id="tab-events"   hidden><div class="section-head"><h2 class="section-title">다가오는 행사</h2><span class="note">홈 오른쪽에 표시됩니다</span></div><div id="ed-events"></div></div>
+        <div id="tab-sponsors" hidden><div class="section-head"><h2 class="section-title">후원업체</h2><span class="note">실제 계약한 곳만 등록하세요</span></div><div id="ed-sponsors"></div></div>
+        <div id="tab-officers" hidden><div class="section-head"><h2 class="section-title">임원진</h2><span class="note">소개 페이지에 표시됩니다</span></div><div id="ed-officers"></div></div>
+
+        <!-- 연락처 -->
+        <div id="tab-settings" hidden>
+          <div class="section-head"><h2 class="section-title">연락처 · SNS</h2></div>
+          <div class="panel" style="max-width:620px">
+            <div class="form-grid" id="settings-form"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="../assets/js/supabase-config.js"></script>
+<script src="../assets/js/kgsa-api.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/page-admin.js"></script>
+</body>
+</html>

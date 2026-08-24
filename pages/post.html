@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" data-root="../">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>게시글 · CU Boulder KGSA</title>
+<meta name="description" content="KGSA 게시판">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#cfb87c">
+<link rel="icon" type="image/png" href="../assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-page="post.html">
+<a class="skip-link" href="#main">본문 바로가기</a>
+<div id="site-header"></div>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="현재 위치">
+        <a href="../index.html">홈</a><span>›</span><a href="board.html">게시판</a><span>›</span><span>글</span>
+      </nav>
+      <h1 id="p-title">불러오는 중…</h1>
+      <p id="p-meta"></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap" style="max-width:820px">
+      <article class="panel" id="p-body-box">
+        <div id="p-body" class="post-body"></div>
+        <div id="p-images" class="post-images"></div>
+        <div class="post-tools" id="p-tools"></div>
+      </article>
+
+      <section style="margin-top:22px">
+        <div class="section-head"><h2 class="section-title">댓글 <span id="c-count"></span></h2></div>
+        <div id="c-list" class="comment-list"></div>
+        <div id="c-form-box" class="panel" style="margin-top:12px"></div>
+      </section>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="../assets/js/supabase-config.js"></script>
+<script src="../assets/js/kgsa-api.js"></script>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/page-post.js"></script>
+</body>
+</html>
