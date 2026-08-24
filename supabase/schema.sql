@@ -310,6 +310,8 @@ begin
 end $$;
 
 -- 관리자 화면용 회원 목록 (이메일 포함이라 admin 만)
+-- 반환 칼럼(real_name)이 바뀌어서 create or replace 가 안 먹습니다. 먼저 지우고 다시 만듭니다.
+drop function if exists public.admin_list_users(text, int);
 create or replace function public.admin_list_users(p_q text default null, p_limit int default 100)
 returns table (
   id uuid, email text, display_name text, real_name text, role text,
